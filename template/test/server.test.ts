@@ -12,7 +12,7 @@ it("Should return express server", async (done) => {
 });
 
 it("Should respond to the GET request on route '/'", async (done) => {
-  const expectedResponse = "Hello API";
+  const expectedResponse = JSON.stringify("Hello API");
   const response = await request(serverObj).get("/");
   expect(response.text).toBe(expectedResponse);
 

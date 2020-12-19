@@ -1,12 +1,15 @@
 import express, { Application } from "express";
 import { createExpressServer } from "routing-controllers";
 import controllersDeclaration from "./controller/declaration";
+import { swaggerLoader } from "./lib/loaders/swagger";
 
 class Server {
   public static async getNewInstance(): Promise<Application> {
-    const app: express.Application = await createExpressServer({
+    let app: express.Application = await createExpressServer({
       controllers: controllersDeclaration
     });
+
+    app = await swaggerLoader(app);
 
     return app;
   }

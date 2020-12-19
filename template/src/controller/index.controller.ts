@@ -1,9 +1,12 @@
-import { Controller, Get } from "routing-controllers";
+import { Get, JsonController } from "routing-controllers";
+import { OpenAPI } from "routing-controllers-openapi";
+import { helloOAPI } from "./response/index.response";
 
-@Controller()
+@JsonController()
 export class IndexController {
-  @Get("/")
-  index(): string {
+  @Get()
+  @OpenAPI(helloOAPI)
+  helloApi(): string {
     return "Hello API";
   }
 }
