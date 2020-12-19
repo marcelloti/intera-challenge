@@ -11,7 +11,7 @@ class Server {
     return app;
   }
 
-  public static async startServer(port: Number): Promise<Application> {
+  public static async startServer(port: number): Promise<Application> {
     const serverObj = await Server.getNewInstance();
     serverObj.listen(port);
     return serverObj;

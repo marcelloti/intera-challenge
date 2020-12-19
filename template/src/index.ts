@@ -1,5 +1,8 @@
 import "reflect-metadata";
-require("dotenv").config();
+import dotenv from "dotenv";
+dotenv.config();
 import Server from "./server";
-const port: Number = Number(process.env["APP_PORT"]);
+const port = Number(process.env["APP_PORT"]);
+
+console.log(`Microservice Started !`);
 Server.startServer(port);

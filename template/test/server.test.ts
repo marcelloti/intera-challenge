@@ -2,9 +2,7 @@ import request from "supertest";
 import Server from "./../src/server";
 
 let serverObj = null;
-let port: Number = null;
 beforeAll(async () => {
-  port = Number(process.env["APP_PORT"]);
   serverObj = await Server.getNewInstance();
 });
 
