@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "allowJs": false,
+    "noEmit": true,
     "target": "es2017",
     "module": "commonjs",
     "lib": ["dom", "es6", "es2017", "esnext.asynciterable"],
@@ -23,6 +25,7 @@
     "resolveJsonModule": true,
     "baseUrl": "."
   },
+  "compileOnSave": false,
   "exclude": ["node_modules"],
   "include": ["./src/**/*.tsx", "./src/**/*.ts"]
 }
