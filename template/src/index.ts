@@ -1,5 +1,5 @@
 import "reflect-metadata";
-import dotenv from "dotenv";
+import * as dotenv from "dotenv";
 dotenv.config();
 import Server from "./server";
 const port = Number(process.env["APP_PORT"]);

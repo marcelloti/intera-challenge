@@ -5,7 +5,7 @@ import * as swaggerUiExpress from "swagger-ui-express";
 import { defaultMetadataStorage } from "class-transformer/storage";
 import { getMetadataArgsStorage } from "routing-controllers";
 import { routingControllersToSpec } from "routing-controllers-openapi";
-import controllersDeclaration from "../../controller/declaration";
+import controllersDeclaration from "@src/controller/declaration";
 
 const swaggerLoader = async (app: Application): Promise<Application> => {
   const schemas = validationMetadatasToSchemas({
