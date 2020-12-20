@@ -47,8 +47,10 @@ async function connectToRealDatabase(): Promise<any> {
   return db;
 }
 
-const connect = async (): Promise<void> => {
-  if (process.env["NODE_ENV"] === "test") {
+const connect = async (
+  env: String = process.env["NODE_ENV"]
+): Promise<void> => {
+  if (env === "test") {
     return await connectToTestDatabase();
   }
 
@@ -65,8 +67,8 @@ async function closeTestDatabaseConnection(): Promise<void> {
   await mongod.stop();
 }
 
-const close = async (): Promise<void> => {
-  if (process.env["NODE_ENV"] === "test") {
+const close = async (env: String = process.env["NODE_ENV"]): Promise<void> => {
+  if (env === "test") {
     return await closeTestDatabaseConnection();
   }
   closeRealDatabaseConnection();
