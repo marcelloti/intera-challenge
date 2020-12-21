@@ -12,17 +12,17 @@ it("Should return express server", async (done) => {
   done();
 });
 
-it("Should respond unathorized to the GET request on route '/'", async (done) => {
-  const response = await request(serverObj).get("/");
+it("Should respond unathorized to the GET request on route '/api'", async (done) => {
+  const response = await request(serverObj).get("/api");
   expect(response.status).toBe(401);
 
   done();
 });
 
-it("Should respond to the GET request on route '/'", async (done) => {
+it("Should respond to the GET request on route '/api'", async (done) => {
   const expectedResponse = JSON.stringify("Hello API");
   const response = await request(serverObj)
-    .get("/")
+    .get("/api")
     .set("Authorization", "Bearer " + process.env["API_ACCESS_TOKEN"]);
   expect(response.text).toBe(expectedResponse);
 

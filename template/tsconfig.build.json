@@ -6,6 +6,7 @@
          "es6",
          "es2020"
       ],
+      "rootDir": "src",
       "baseUrl": ".",
       "paths": {
          "@src/*": ["./src/*"]
@@ -19,6 +20,6 @@
       "experimentalDecorators": true,
       "sourceMap": true
    },
-
+   "include": ["src"],
    "exclude": ["node_modules", "**/node_modules/*"]
 }

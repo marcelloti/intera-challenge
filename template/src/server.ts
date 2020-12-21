@@ -7,6 +7,7 @@ import helmet from "helmet";
 class Server {
   public static async getNewInstance(): Promise<Application> {
     let app: express.Application = await createExpressServer({
+      routePrefix: "/api",
       authorizationChecker: async (action: Action) => {
         return await Auth.authChecker(action);
       },
@@ -22,6 +23,13 @@ class Server {
       app.disabled("x-powered-by");
     }
 
+    /*
+    app.get("/", (req, res) => {
+      return res.json({
+        message: "Welcome from API"
+      });
+    });
+    */
     return app;
   }
 

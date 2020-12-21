@@ -16,7 +16,7 @@ const swaggerLoader = async (app: Application): Promise<Application> => {
   const storage = getMetadataArgsStorage();
   const routingControllersOptions = {
     controllers: controllersDeclaration,
-    routePrefix: "/"
+    routePrefix: "/api"
   };
   const spec = routingControllersToSpec(storage, routingControllersOptions, {
     components: {
