@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import { MongoMemoryServer } from "mongodb-memory-server";
 
-let mongod = null;
+let mongod: MongoMemoryServer;
 if (process.env["NODE_ENV"] === "test") {
   mongod = new MongoMemoryServer();
 }

@@ -24,7 +24,7 @@ services:
       - ./zeebe/storage/zeebe_broker_data:/usr/local/zeebe/data
     networks:
       default:
-        ipv4_address: 192.168.80.1
+        ipv4_address: 172.20.80.1
 
   elasticsearch:
     container_name: elasticsearch
@@ -40,7 +40,7 @@ services:
       - ./zeebe/storage/elasticsearch_data:/usr/share/elasticsearch/data
     networks:
       default:
-        ipv4_address: 192.168.80.2
+        ipv4_address: 172.20.80.2
 
   monitor:
     container_name: zeebe_monitor
@@ -55,11 +55,11 @@ services:
       - zeebe
     networks:
       default:
-        ipv4_address: 192.168.80.3
+        ipv4_address: 172.20.80.3
 
 networks:
   default:
     ipam:
       driver: default
       config:
-        - subnet: 192.168.80.0/16
+        - subnet: 172.20.80.0/16
