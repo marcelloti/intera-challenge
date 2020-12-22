@@ -1,4 +1,9 @@
+template/.vscode/
 template/node_modules
 template/.env
 template/dist
 TODO
+
+.vscode/
+template/docker/database_storage
+template/docker/zeebe/storage
