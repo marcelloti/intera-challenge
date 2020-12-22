@@ -1,5 +1,19 @@
 version: "3"
 services:
+  app:
+    image: node:14.14.0-alpine3.12
+    network_mode: "host"
+    ports:
+      - "3001:3001"
+    working_dir: /home/node/app
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ../:/home/node/app
+    expose:
+      - "3001"
+    command: "npm run build && npm run start"
+
   mongo:
     image: mongo
     network_mode: "host"
@@ -36,7 +50,7 @@ services:
       - cluster.name=elasticsearch
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
     volumes:
-      # sudo mkdir -p storage/elasticsearch_data; chmod 777 -R storage/elasticsearch_data
+      # Caso necessário, execute sudo mkdir -p storage/elasticsearch_data; chmod 777 -R storage/elasticsearch_data
       - ./zeebe/storage/elasticsearch_data:/usr/share/elasticsearch/data
     networks:
       default:
