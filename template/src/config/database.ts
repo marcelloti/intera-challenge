@@ -1,21 +1,19 @@
 import mongoose from "mongoose";
 import { MongoMemoryServer } from "mongodb-memory-server";
+import { mongooseOpts } from "./mongooseOpts";
 
 let mongod: MongoMemoryServer;
 if (process.env["NODE_ENV"] === "test") {
   mongod = new MongoMemoryServer();
 }
 
-async function connectToTestDatabase(): Promise<any> {
-  const uri = await mongod.getConnectionString();
+mongoose.Promise = global.Promise;
+mongoose.set("useNewUrlParser", true);
+mongoose.set("useFindAndModify", false);
+mongoose.set("useCreateIndex", true);
 
-  const mongooseOpts = {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    autoReconnect: true,
-    reconnectTries: Number.MAX_VALUE,
-    reconnectInterval: 1000
-  };
+async function connectToTestDatabase(): Promise<any> {
+  const uri = await mongod.getUri();
 
   return await mongoose.connect(uri, mongooseOpts);
 }
@@ -32,10 +30,7 @@ async function connectToRealDatabase(): Promise<any> {
   await mongoose
     .connect(connectionUrl, {
       useNewUrlParser: true,
-      useUnifiedTopology: true,
-      autoReconnect: true,
-      reconnectTries: Number.MAX_VALUE,
-      reconnectInterval: 1000
+      useUnifiedTopology: true
     })
     .catch((err) => {
       console.error(err);
@@ -47,9 +42,8 @@ async function connectToRealDatabase(): Promise<any> {
   return db;
 }
 
-const connect = async (
-  env: String = process.env["NODE_ENV"]
-): Promise<void> => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const connect = async (env: String = process.env["NODE_ENV"]): Promise<any> => {
   if (env === "test") {
     return await connectToTestDatabase();
   }
