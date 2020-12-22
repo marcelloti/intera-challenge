@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1r5se9r" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Zeebe Modeler" exporterVersion="0.8.0">
+  <bpmn:process id="ProcessUndeployId" name="ProcessUndeployName&#10;" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>SequenceFlow_1vhx226</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:endEvent id="EndEvent_073f89i">
+      <bpmn:incoming>SequenceFlow_1vhx226</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_1vhx226" sourceRef="StartEvent_1" targetRef="EndEvent_073f89i" />
+    <bpmn:textAnnotation id="TextAnnotation_1agc609">
+      <bpmn:text>UNDEPLOY</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_0k2g7f0" sourceRef="StartEvent_1" targetRef="TextAnnotation_1agc609" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="ProcessUndeployId">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="179" y="159" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_073f89i_di" bpmnElement="EndEvent_073f89i">
+        <dc:Bounds x="262" y="159" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1vhx226_di" bpmnElement="SequenceFlow_1vhx226">
+        <di:waypoint x="215" y="177" />
+        <di:waypoint x="262" y="177" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TextAnnotation_1agc609_di" bpmnElement="TextAnnotation_1agc609">
+        <dc:Bounds x="147" y="70" width="100" height="30" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Association_0k2g7f0_di" bpmnElement="Association_0k2g7f0">
+        <di:waypoint x="197" y="159" />
+        <di:waypoint x="197" y="100" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
