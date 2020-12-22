@@ -14,3 +14,10 @@ talents/.vscode/
 talents/node_modules
 talents/.env
 talents/dist
+
+openings/docker/database_storage
+openings/docker/zeebe/storage
+openings/.vscode/
+openings/node_modules
+openings/.env
+openings/dist
