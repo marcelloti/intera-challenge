@@ -4,7 +4,7 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "build": "rm -r dist/ && tsc --project tsconfig.build.json && tscpaths -p tsconfig.build.json -s ./src -o ./dist",
+    "build": "rm -rf dist/ && tsc --project tsconfig.build.json && tscpaths -p tsconfig.build.json -s ./src -o ./dist",
     "start": "NODE_ENV=production node dist/index.js",
     "start:dev": "nodemon",
     "test": "jest --forceExit --detectOpenHandles",
@@ -46,6 +46,7 @@
     "@types/node": "^8.0.29",
     "@types/supertest": "^2.0.10",
     "@types/swagger-ui-express": "^4.1.2",
+    "@types/uuid": "^8.3.0",
     "@typescript-eslint/eslint-plugin": "^4.10.0",
     "@typescript-eslint/parser": "^4.10.0",
     "eslint": "^7.16.0",

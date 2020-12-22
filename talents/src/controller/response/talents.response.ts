@@ -1,4 +1,4 @@
-const getAllTalensResponse = {
+const getAllTalensOAPI = {
   description: "Return all talents from database",
   responses: {
     "200": {
@@ -7,7 +7,7 @@ const getAllTalensResponse = {
   }
 };
 
-const getOneTalensResponse = {
+const getOneTalensOAPI = {
   description: "Return all talents from database",
   responses: {
     "200": {
@@ -16,7 +16,7 @@ const getOneTalensResponse = {
   }
 };
 
-const saveTalent = {
+const saveTalentOAPI = {
   description: "Register a talent in database",
   responses: {
     "200": {
@@ -25,7 +25,7 @@ const saveTalent = {
   }
 };
 
-const updateTalent = {
+const updateTalentOAPI = {
   description: "Update a talent in database",
   responses: {
     "200": {
@@ -34,4 +34,19 @@ const updateTalent = {
   }
 };
 
-export { getAllTalensResponse, getOneTalensResponse, saveTalent, updateTalent };
+const deleteTalentOAPI = {
+  description: "Update a talent in database",
+  responses: {
+    "200": {
+      description: "Success"
+    }
+  }
+};
+
+export {
+  getAllTalensOAPI,
+  getOneTalensOAPI,
+  saveTalentOAPI,
+  updateTalentOAPI,
+  deleteTalentOAPI
+};

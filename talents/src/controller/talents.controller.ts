@@ -1,42 +1,62 @@
+import { TalentService } from "@src/service/talent.service";
 import {
   Authorized,
+  Body,
+  Delete,
   Get,
   JsonController,
-  Patch,
-  Post
+  Param,
+  Post,
+  Put
 } from "routing-controllers";
 import { OpenAPI } from "routing-controllers-openapi";
 import {
-  updateTalent,
-  getAllTalensResponse,
-  getOneTalensResponse,
-  saveTalent
+  updateTalentOAPI,
+  getAllTalensOAPI,
+  getOneTalensOAPI,
+  saveTalentOAPI,
+  deleteTalentOAPI
 } from "./response/talents.response";
 
+import { talentCreateRequest } from "./request/talent.request";
+
 @JsonController()
+@Authorized()
 export class TalentsController {
-  @Authorized()
+  @Post("/talents")
+  @OpenAPI(saveTalentOAPI)
+  async create(@Body() talent: talentCreateRequest): Promise<{}> {
+    return await TalentService.create(talent);
+  }
+
   @Get("/talents")
-  @OpenAPI(getAllTalensResponse)
-  findAll(): string[] {
-    return ["Hello API"];
+  @OpenAPI(getAllTalensOAPI)
+  async findAll(): Promise<{}> {
+    const talentsResult = await TalentService.findAll();
+    return talentsResult;
   }
 
   @Get("/talents/:id")
-  @OpenAPI(getOneTalensResponse)
-  find(): string {
-    return "Hello API";
+  @OpenAPI(getOneTalensOAPI)
+  async findById(@Param("id") id: string): Promise<{}> {
+    const talent = await TalentService.findById(id);
+    return talent;
   }
 
-  @Post("/talents")
-  @OpenAPI(saveTalent)
-  save(): string {
-    return "Hello API";
+  @Put("/talents/:id")
+  @OpenAPI(updateTalentOAPI)
+  async update(
+    @Param("id") id: string,
+    @Body() talent: talentCreateRequest
+  ): Promise<{}> {
+    const result = await TalentService.update(id, talent);
+    return result;
   }
 
-  @Patch("/talents")
-  @OpenAPI(updateTalent)
-  update(): string {
-    return "Hello API";
+  @Delete("/talents/:id")
+  @OpenAPI(deleteTalentOAPI)
+  async delete(@Param("id") id: string): Promise<{}> {
+    await TalentService.delete(id);
+    return `Talent ${id} removed`;
   }
 }
