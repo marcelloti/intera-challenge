@@ -1,0 +1,25 @@
+{
+   "compilerOptions": {
+      "noImplicitAny": true,
+      "lib": [
+         "es5",
+         "es6",
+         "es2020"
+      ],
+      "rootDir": "src",
+      "baseUrl": ".",
+      "paths": {
+         "@src/*": ["./src/*"]
+      },
+      "target": "es6",
+      "module": "commonjs",
+      "moduleResolution": "node",
+      "outDir": "./dist",
+      "esModuleInterop": true,
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+      "sourceMap": true
+   },
+   "include": ["src"],
+   "exclude": ["node_modules", "**/node_modules/*"]
+}
