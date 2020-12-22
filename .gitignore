@@ -1,9 +1,16 @@
+TODO
+.vscode/
+
+template/docker/database_storage
+template/docker/zeebe/storage
 template/.vscode/
 template/node_modules
 template/.env
 template/dist
-TODO
 
-.vscode/
-template/docker/database_storage
-template/docker/zeebe/storage
+talents/docker/database_storage
+talents/docker/zeebe/storage
+talents/.vscode/
+talents/node_modules
+talents/.env
+talents/dist
