@@ -75,4 +75,5 @@ do docker-compose em cada um deles não foi finalizada.
    alterantivas seriam Terraform ou CircleCI.
  - Existe um endpoint em cada serviço "/docs" onde é possível verificar
    a documentação de cada microserviço
-
+ - Você pode conhecer mais sobre o Zeebe neste artigo em meu Medium:
+  https://medium.com/@marcelloti/orquestra%C3%A7%C3%A3o-de-micro-servi%C3%A7os-com-zeebe-workflow-engine-bpmn-e-node-usando-nestjs-94621892170c
