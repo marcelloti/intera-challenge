@@ -1,6 +1,7 @@
 type talentCreateRequest = {
   first_name: String;
   last_name: String;
+  position: String;
   email: String;
   phone: Number;
   linkedin: String;

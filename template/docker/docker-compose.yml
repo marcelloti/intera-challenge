@@ -25,7 +25,7 @@ services:
 
   zeebe:
     container_name: zeebe
-    image: camunda/zeebe:0.24.2
+    image: camunda/zeebe:0.25.3
     environment:
       - ZEEBE_LOG_LEVEL=debug
     ports:

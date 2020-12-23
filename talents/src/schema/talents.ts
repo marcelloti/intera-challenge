@@ -20,6 +20,12 @@ export const talentSchema = new Schema(
       unique: false,
       required: true
     },
+    position: {
+      type: String,
+      lowercase: true,
+      trim: true,
+      required: true
+    },
     email: {
       type: String,
       lowercase: true,

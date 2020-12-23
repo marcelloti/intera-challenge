@@ -21,6 +21,15 @@ class OpeningsRepository {
     return response;
   }
 
+  public static async findByField(field: string, value: string): Promise<{}> {
+    const response = await Opening.find({})
+      .where(field)
+      .equals(value)
+      .lean()
+      .exec();
+    return response;
+  }
+
   public static async update(
     id: string,
     opening: openingCreateRequest
