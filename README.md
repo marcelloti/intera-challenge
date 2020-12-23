@@ -4,7 +4,9 @@ Desafio de processo seletivo para a empresa Intera
 Este repositório contém 3 microserviços. São eles:
 
 Talents - Serviço de cadastro de usuário
+
 Openings - Serviço de cadastro de vagas
+
 Match - Serviço de monitoramento de "Matches"
 
 O repositório também contém o diretório "template", que serve
