@@ -21,7 +21,9 @@ de inicialização do Zeebe fica no serviço "Talents"
 Para rodar o projeto, execute os seguintes passos:
 
 1- Clone o repositório
+
    git clone https://github.com/marcelloti/intera-challenge
+
    cd intera-challenge
 
 2- Crie os arquivos .env dos serviços de acordo com os arquivos .env.example.
@@ -32,30 +34,40 @@ Para rodar o projeto, execute os seguintes passos:
    está sendo feita pelo serviço online "Ethereal". Este serviço permite
    manter uma caixa de mensagens virtual online. Para configurar este serviço
    simplesmente entre no endereço http://ethereal.email/ e clique em "Create Ethereal Account".
+
    Nenhum dado será requisitado a você ao clicar neste botão. Dados de acesso à caixa de
    email temporária serão exibidos em seguida na tela. Utilize esses dados para
    configurar corretamente seu arquivo .env
 
 3- Em cada diretório de microserviços (exceto o diretório template) execute os seguintes comandos:
+
    npm install
+
    npm run build
 
 4- Suba os containers de docker no serviço talents:
   cd talents/docker
+
   sudo mkdir -p zeebe/storage/elasticsearch_data; sudo chmod 777 -R zeebe/storage/
+
   docker-compose up -d
 
 5- Faça o deploy do workflow
+
   npm run 
 
 6- Suba os demais serviços
+
   cd ../../openings/docker/
+
   npm run start
 
   cd ../../match/docker/
+
   docker-compose up -d
 
 7- Volte ao serviço de talents e entregue o workflow:
+
   npm run deployWorkflow
 
   Após rodar esse comando, você poderá abrir o "Zeebe Simple Monitor" 
