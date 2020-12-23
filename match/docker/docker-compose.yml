@@ -1,27 +1,18 @@
 version: "3"
 services:
-  app:
-    image: node:14.14.0-alpine3.12
-    network_mode: "host"
-    ports:
-      - "3001:3001"
-    working_dir: /home/node/app
-    environment:
-      - NODE_ENV=production
-    volumes:
-      - ../:/home/node/app
-    expose:
-      - "3001"
-    command: "npm run build && npm run start"
-
-  mongo:
-    image: mongo
-    network_mode: "host"
-    ports:
-      - "27017:27017"
-    volumes:
-      - "/mongo_users.js:/docker-entrypoint-initdb.d/001_users.js:ro"
-      - "./database_storage:/data/db"
+  #match-app:
+  #  image: node:14.14.0-alpine3.12
+  #  network_mode: "host"
+  #  ports:
+  #    - "3003:3003"
+  #  working_dir: /home/node/app
+  #  environment:
+  #    - NODE_ENV=production
+  #  volumes:
+  #    - ../:/home/node/app
+  #  expose:
+  #    - "3003"
+  #  command: "npm run build && npm run start"
 
 networks:
   default:
