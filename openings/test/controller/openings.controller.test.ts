@@ -81,6 +81,17 @@ it("Should respond 200 with one opening", async (done) => {
   done();
 });
 
+it("Should respond 200 with one opening (find)", async (done) => {
+  const position = "fullstack";
+  const response = await request(serverObj)
+    .get(`/api/openings/findBy/position/${position}`)
+    .set("Authorization", "Bearer " + process.env["API_ACCESS_TOKEN"]);
+
+  expect(response.status).toBe(200);
+  expect(response.body._id).not.toBe(null);
+  done();
+});
+
 it("Should update a registry and respond 200 with updated registry", async (done) => {
   const responseBeforeUpdate = await request(serverObj)
     .get(`/api/openings/${testOpeningId}`)

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1po7gaf" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Zeebe Modeler" exporterVersion="0.8.0">
+  <bpmn:process id="talentRegister" name="talentRegister" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>SequenceFlow_0waoz90</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_0waoz90" sourceRef="StartEvent_1" targetRef="talentCreated" />
+    <bpmn:endEvent id="EndEvent_07jq4x2">
+      <bpmn:incoming>SequenceFlow_1y63u3i</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_1y63u3i" sourceRef="talentCreated" targetRef="EndEvent_07jq4x2" />
+    <bpmn:serviceTask id="talentCreated" name="MATCH SERVICE">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="talent:created" retries="3" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_0waoz90</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1y63u3i</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:textAnnotation id="TextAnnotation_0qnogm5">
+      <bpmn:text>START WORKFLOW</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_1ehg80p" sourceRef="StartEvent_1" targetRef="TextAnnotation_0qnogm5" />
+    <bpmn:textAnnotation id="TextAnnotation_08usjxt">
+      <bpmn:text>CALL MATCH SERVICE FOR CHECK NEW MATCHES</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_1u0lm78" sourceRef="talentCreated" targetRef="TextAnnotation_08usjxt" />
+    <bpmn:textAnnotation id="TextAnnotation_181eodk">
+      <bpmn:text>END
+WORKFLOW</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_0w8asgj" sourceRef="EndEvent_07jq4x2" targetRef="TextAnnotation_181eodk" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="talentRegister">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="179" y="209" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0waoz90_di" bpmnElement="SequenceFlow_0waoz90">
+        <di:waypoint x="215" y="227" />
+        <di:waypoint x="310" y="227" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TextAnnotation_0qnogm5_di" bpmnElement="TextAnnotation_0qnogm5">
+        <dc:Bounds x="147" y="100" width="100" height="40" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Association_1ehg80p_di" bpmnElement="Association_1ehg80p">
+        <di:waypoint x="197" y="227" />
+        <di:waypoint x="197" y="140" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="EndEvent_07jq4x2_di" bpmnElement="EndEvent_07jq4x2">
+        <dc:Bounds x="512" y="209" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1y63u3i_di" bpmnElement="SequenceFlow_1y63u3i">
+        <di:waypoint x="410" y="227" />
+        <di:waypoint x="512" y="227" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="ServiceTask_187zwjh_di" bpmnElement="talentCreated">
+        <dc:Bounds x="310" y="187" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_08usjxt_di" bpmnElement="TextAnnotation_08usjxt">
+        <dc:Bounds x="320" y="80" width="100" height="68" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Association_1u0lm78_di" bpmnElement="Association_1u0lm78">
+        <di:waypoint x="364" y="187" />
+        <di:waypoint x="367" y="148" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TextAnnotation_181eodk_di" bpmnElement="TextAnnotation_181eodk">
+        <dc:Bounds x="480" y="109" width="100" height="40" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Association_0w8asgj_di" bpmnElement="Association_0w8asgj">
+        <di:waypoint x="530" y="209" />
+        <di:waypoint x="530" y="149" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

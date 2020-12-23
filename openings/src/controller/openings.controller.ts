@@ -59,4 +59,14 @@ export class OpeningsController {
     await OpeningService.delete(id);
     return `Opening ${id} removed`;
   }
+
+  @Get("/openings/findBy/:field/:value")
+  @OpenAPI(getAllOpeningsOAPI)
+  async findOpeningsByPosition(
+    @Param("field") field: string,
+    @Param("value") value: string
+  ): Promise<{}> {
+    const openingsResult = await OpeningService.findByField(field, value);
+    return openingsResult;
+  }
 }

@@ -1,9 +1,11 @@
 import { talentCreateRequest } from "@src/controller/request/talent.request";
+import { workflowEngine } from "@src/lib/workflowEngine";
 import { TalentsRepository } from "@src/repository/talents.repository";
 
 class TalentService {
   public static async create(talent: talentCreateRequest): Promise<{}> {
     const response = await TalentsRepository.insert(talent);
+    workflowEngine.publishEvent("talentRegister", response);
     return response;
   }
 

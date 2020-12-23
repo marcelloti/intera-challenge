@@ -1,6 +1,7 @@
 import { workflowEngineLoader } from "../loaders/workflowEngine";
 import * as path from "path";
 import * as fs from "fs";
+import { CompleteFn, Job } from "zeebe-node";
 
 class workflowEngine {
   public static getCompleteWorkflowPath(filename: string): string {
@@ -25,6 +26,23 @@ class workflowEngine {
       definition: bufferData,
       name: "undeploy.bpmn"
     });
+
+    return true;
+  }
+
+  public static async createWorker(
+    eventId: string,
+    callback: Function
+  ): Promise<boolean> {
+    try {
+      const zbc = await workflowEngineLoader();
+      zbc.createWorker(eventId, async (job, complete) => {
+        const respose = await callback(job.variables);
+        complete.success(respose);
+      });
+    } catch (err) {
+      return false;
+    }
 
     return true;
   }

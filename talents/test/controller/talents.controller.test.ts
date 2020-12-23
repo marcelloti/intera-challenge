@@ -14,6 +14,7 @@ it("Should respond 200 with data to the POST request on route '/api/talents' (cr
   const newTalent1: talentCreateRequest = {
     first_name: "John",
     last_name: "Doe",
+    position: "Fullstack",
     email: "johndoe@test.com",
     phone: 32988887777,
     linkedin: "https://www.linkedin.com/in/johndoe",
@@ -24,6 +25,7 @@ it("Should respond 200 with data to the POST request on route '/api/talents' (cr
   const newTalent2: talentCreateRequest = {
     first_name: "John",
     last_name: "Doe2",
+    position: "Fullstack",
     email: "johndoe2@test.com",
     phone: 32988886666,
     linkedin: "https://www.linkedin.com/in/johndoe2",
@@ -84,6 +86,7 @@ it("Should update a registry and respond 200 with updated registry", async (done
 
   talentToBeSend.first_name = "jane";
   talentToBeSend.last_name = "doe";
+  talentToBeSend.position = "fullstack";
   talentToBeSend.email = "janedoe@mail.com";
   talentToBeSend.linkedin = "https://www.linkedin.com/in/janedoe";
   delete talentToBeSend.updatedAt;

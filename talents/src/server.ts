@@ -5,6 +5,8 @@ import { Auth } from "./lib/auth";
 import { swaggerLoader } from "./lib/loaders/swagger";
 import { databaseLoader } from "./lib/loaders/database";
 import helmet from "helmet";
+import { workersLoader } from "./lib/loaders/workers";
+
 class Server {
   public static async getNewInstance(): Promise<Application> {
     let app: Application = express();
@@ -21,6 +23,7 @@ class Server {
 
     app = await swaggerLoader(app);
     await databaseLoader();
+    await workersLoader();
 
     if (process.env.ENV !== "development") {
       app.set("trust proxy", true);

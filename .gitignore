@@ -21,3 +21,10 @@ openings/.vscode/
 openings/node_modules
 openings/.env
 openings/dist
+
+match/docker/database_storage
+match/docker/zeebe/storage
+match/.vscode/
+match/node_modules
+match/.env
+match/dist
