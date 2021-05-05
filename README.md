@@ -1,5 +1,4 @@
-# intera-challenge
-Desafio de processo seletivo para a empresa Intera
+# Talents and Jobs Service Example
 
 Este repositório contém 3 microserviços. São eles:
 
@@ -22,9 +21,9 @@ Para rodar o projeto, execute os seguintes passos:
 
 1- Clone o repositório
 
-   git clone https://github.com/marcelloti/intera-challenge
+   git clone https://github.com/marcelloti/talents-service
 
-   cd intera-challenge
+   cd talents-service
 
 2- Crie os arquivos .env dos serviços de acordo com os arquivos .env.example.
    Para facilitar, os arquivos .env.example foram criados já preenchidos. A dica
